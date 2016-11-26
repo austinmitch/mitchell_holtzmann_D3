@@ -1,2 +1,155 @@
 @charset "UTF-8";
 /*CSS DOCUMENT*/
+
+/******************************************
+FONT
+*******************************************/
+@font-face {
+    font-family: 'distant_galaxyregular';
+    src: url('../fonts/distant_galaxy/distgrg_-webfont.woff2') format('woff2'),
+         url('../fonts/distant_galaxy/distgrg_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/******************************************
+GLOBAL RULES
+*******************************************/
+
+body {
+  /*background-color: #000;*/
+  background-image: url("../images/background.jpg");
+  color: #f0db20;
+  font-size: 16px;
+}
+
+/******************************************
+MAIN CONTENT
+*******************************************/
+header {
+  background-color: rgba(0,0,0,0.7);
+  padding: 0.625em 0; /*10/16*/
+}
+
+header h2 {
+  font-family: 'distant_galaxyregular', arial, sans-serif;
+  font-size: 2.5em; /*40/16*/
+  text-align: center;
+}
+
+.content {
+  padding: 0.625em;
+}
+
+.title {
+  display: none;
+}
+
+#pieChart {
+  background-color: #efefef;
+  height: 300px;
+  margin: 1.875em auto; /*30/16*/
+}
+
+.buttons {
+  margin-bottom: 0.625em;
+}
+
+button {
+  width: 29%;
+  margin-right: 5%;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 1.0625em; /*17/16*/
+  background-color: transparent;
+  border: none;
+  color: #f0db20;
+}
+
+button:last-child {
+  margin-right: 0;
+}
+
+/******************************************
+HAMBURGER MENU
+*******************************************/
+
+.bar {
+  width: 60%;
+  height: 4px;
+  background-color: #f0db20;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+  transition: all 0.3s ease-in;
+  position: relative;
+  top: 0;
+}
+
+#middleBar {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.dropDownOpen #middleBar {
+  opacity: 0;
+}
+
+.dropDownOpen .bar:first-child {
+  position: relative;
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.dropDownOpen .bar:last-child {
+  position: relative;
+  transform: rotate(-45deg);
+  top: -8px;
+}
+
+#dataMenu {
+  display: none;
+  padding: 10px 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+#dataMenu ul li {
+  /*width: 95%;*/
+  margin: 0.3125em auto; /*5/16*/
+  border-bottom: 1px dotted rgba(235, 227, 36, 0.20);
+}
+
+#dataMenu ul li:last-child {
+  border-bottom: none;
+}
+
+#dataMenu ul li a {
+  display: block;
+  color: #fff;
+  padding: 0.4375em; /*7/16*/
+  font-family: helvetica, arial, sans-serif;
+  text-decoration: none;
+  transition: all 0.5s ease-out;
+}
+
+#dataMenu ul li a:hover {
+  background-color: rgba(235, 227, 36, 0.20);
+}
+
+#dataMenu.menuOpen {
+  display: block;
+}
+
+/******************************************
+END OF HAMBURGER MENU
+*******************************************/
+
+footer {
+  background-color: rgba(0,0,0,0.7);
+  padding: 5px;
+  text-align: center;
+}
+
+footer p {
+  font-family: helvetica, arial, sans-serif;
+}
