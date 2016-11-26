@@ -2,12 +2,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title></title>
-<!--rel is relationship-->
+	<title>Star Wars Facts</title>
+	<link href="css/reset.css" rel="stylesheet" type="text/css" media="screen">
 	<link href="css/main.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 <body>
 
+	<div class="container">
+		<header>
+			<h2>SWF</h2>
+		</header>
+
+		<section class="content">
+			<h1 class="title">Star Wars Facts</h1>
+
+			<div id="pieChart"><!-- chart goes here --></div>
+
+			<div class="buttons">
+				<button type="button" name="back" id="back" class="button">Prev</button>
+
+				<button type="button" name="dropDown" id="dropDown" class="button">
+					<div class="bar"></div>
+					<div class="bar" id="middleBar"></div>
+					<div class="bar"></div>
+				</button>
+
+				<button type="button" name="next" id="next" class="button">Next</button>
+			</div>
+
+		</section>
+
+		<!-- left out of content so it can be full width -->
+			<div id="dataMenu">
+				<ul>
+					<li><a href="#" id="dataSet1"> <!-- grab dataset name from database here --> a thing </a></li>
+					<li><a href="#" id="dataSet2"> <!-- grab dataset name from database here --> a thing </a></li>
+					<li><a href="#" id="dataSet3"> <!-- grab dataset name from database here --> a thing </a></li>
+					<li><a href="#" id="dataSet4"> <!-- grab dataset name from database here --> a thing </a></li>
+				</ul>
+			</div>
+
+			<footer>
+				<p>Holtzmann - Mitchell</p>
+			</footer>
+
+	</div>
+
 <script src="js/main.js"></script>
+<script src="js/dropDown.js">
+
+</script>
 </body>
 </html>
