@@ -52,7 +52,7 @@ header h2 {
 }
 
 .buttons {
-  margin-bottom: 0.625em;
+  margin-bottom: 0.625em; /*10/16*/
 }
 
 button {
@@ -152,4 +152,90 @@ footer {
 
 footer p {
   font-family: helvetica, arial, sans-serif;
+}
+
+/******************************************
+TABLET STYLING
+*******************************************/
+
+@media screen and (min-width: 768px) {
+
+  header h2 {
+    display: none;
+  }
+
+  .title {
+    display: block;
+    font-family: 'distant_galaxyregular', arial, sans-serif;
+    font-size: 2.5em; /*40/16*/
+    text-align: center;
+  }
+
+#pieChart {
+    height: 500px;
+    margin: 3.125em auto 0 auto; /*50/16*/
+  }
+
+  .buttons {
+    overflow: hidden;
+  }
+
+  .button {
+    background-color: #333;
+    padding: 1.25em 0; /*20/16*/
+    margin-top: 1.25em; /*20/16*/
+    transition: all 0.4s ease-out;
+  }
+
+  .button:hover {
+    background-color: #f0db20;
+    color: #333;
+  }
+
+  #back {
+    float: left;
+  }
+
+  #next {
+    float: right;
+  }
+
+  #dropDown {
+    display: none;
+  }
+
+  #dataMenu {
+    display: block;
+    clear: both;
+    width: 55%;
+    margin: 0 auto;
+    padding: 0;
+    background: none;
+  }
+
+  #dataMenu ul li {
+    /*width: 95%;*/
+    margin: 0 auto; /*5/16*/
+    border-bottom: none;
+    padding: 0;
+  }
+
+  #dataMenu ul li a {
+    display: block;
+    color: #f0db20;
+    padding: 0.9375em 0; /*15/16*/
+    margin: 0.625em 0; /*10/16*/
+    font-family: helvetica, arial, sans-serif;
+    text-decoration: none;
+    transition: all 0.4s ease-out;
+    text-align: center;
+    background-color: #333;
+  }
+
+  #dataMenu ul li a:hover {
+    background-color: #f0db20;
+    color: #333;
+  }
+
+
 }
