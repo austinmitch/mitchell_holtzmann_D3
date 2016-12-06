@@ -4,7 +4,16 @@
 	"use strict";
 	console.log("SEAF FIRED");
 
-		d3.json("dataBoxOffice.php", function(data) {
+	var dataSet = [
+		'dataBoxOffice.php',
+		'dataCharKills.php',
+		'dataDuelTime.php',
+		'DataStormKills.php'
+	];
+
+	var buttons = document.querySelectorAll('.setSelect');
+
+		d3.json(dataSet[0], function(data) {
 		console.log(data);
 
 

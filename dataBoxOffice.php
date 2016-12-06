@@ -1,8 +1,11 @@
 <?php
 error_reporting(0);
+
+require_once("/includes/config.php");
+
 header('Content-Type: application/json');
 $array = array();
-$connection = mysqli_connect('localhost', 'root', '', 'd3_group');
+$connection = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
 $sql="SELECT * FROM tbl_set, tbl_data WHERE set_id='1' AND data_set=set_id";
 $result = mysqli_query($connection, $sql);
 
