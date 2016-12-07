@@ -52,7 +52,7 @@ header h2 {
 
 #pieChart {
   background-color: #efefef;
-  height: 300px;
+  height: 320px;
   margin: 1.875em auto; /*30/16*/
 }
 
@@ -71,6 +71,17 @@ button {
 
 button:nth-child(2) {
   margin: 0 4.5%;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  font: 12px sans-serif;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
 }
 
 /******************************************
