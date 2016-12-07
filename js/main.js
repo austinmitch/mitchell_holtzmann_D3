@@ -1,6 +1,6 @@
 //javascript doc
 
-(function() {
+//(function() {
 	"use strict";
 	console.log("SEAF FIRED");
 
@@ -10,9 +10,39 @@
 		'dataDuelTime.php',
 		'DataStormKills.php'
 	];
+
+
+	var z = 0;
+
+	d3.select("#next").on("click", function(){
+		var length = dataSet.length;
+		if(z < length-1) {
+			z++;
+		}else{
+			z = 0;
+		}
+		console.log(z);
+		createChart(z);
+	});
+
+	d3.select("#back").on("click", function(){
+		var length = dataSet.length;
+		if(z > 0) {
+			z--;
+		}else{
+			z = 3;
+		}
+		console.log(z);
+		createChart(z);
+	});
+
 	
-		d3.json(dataSet[0], function(data) {
+
+function createChart(z) {
+		d3.json(dataSet[z], function(data) {
 		console.log(data);
+		var chart = d3.select("#pieChart");
+		chart.selectAll("*").remove();
 
 
 //variables *************************************************************
@@ -66,6 +96,7 @@
 
 
 
+
 //legend related *************************************************************
 var legend = svg.selectAll('.legend')
           .data(color.domain())
@@ -95,4 +126,8 @@ var legend = svg.selectAll('.legend')
 
 });
 
- })();
+};
+createChart(0);
+
+
+ //})();
