@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-require_once("/includes/config.php");
+require_once("includes/config.php");
 header('Content-Type: application/json');
 $array = array();
 $connection = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);

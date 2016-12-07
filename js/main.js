@@ -10,9 +10,7 @@
 		'dataDuelTime.php',
 		'DataStormKills.php'
 	];
-
-	var buttons = document.querySelectorAll('.setSelect');
-
+	
 		d3.json(dataSet[0], function(data) {
 		console.log(data);
 
