@@ -42,12 +42,14 @@ function createChart(z) {
 		console.log(data);
 		var chart = d3.select("#pieChart");
 		chart.selectAll("*").remove();
+    var tooltip = d3.selectAll(".tooltip");
+    tooltip.remove();
 
 
 //variables *************************************************************
         var donutWidth = 75;
         var width = 480;
-        var height = 500;
+        var height = 470;
         var radius = Math.min(width, height) / 2;
         var color = d3.scaleOrdinal()
         .range(["#00498C", "#00A79D", "#527892", "#3D4E80", "#00A4BB", "#212744"]);
@@ -62,13 +64,18 @@ function createChart(z) {
 
 //making the chart ************************************************************
 
-
+       var div = d3.select("body")
+      .append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
 
         var svg = d3.select('#pieChart')
           .append('svg')
-          .attr('width', width)
-          .attr('height', height)
+          .attr('width', '100%')
+          .attr('height', '100%')
+          .attr('viewBox','0 0 '+Math.min(width,height) +' '+Math.min(width,height) )
+   
           .append('g')
           .attr('transform', 'translate(' + (width / 2) +
             ',' + (height / 2) + ')');
@@ -92,7 +99,26 @@ function createChart(z) {
             .attr('fill', function(d, i) {
             return color(d.data.label)});
 
+         d3.selectAll('path')
+        .on("mouseover", function(d){
+          div.transition()
+          .duration(200)
+          .style("opacity", 1);
+          div.html(d)
+          .style("left", (d3.event.pageX-30)+"px")
+          .style("top", (d3.event.pageY-30)+"px")
+          .text(d.data.tooltip);
 
+          d3.select(this)//this = eement being hovered on
+            .style("opacity", 1);
+            
+        })
+
+        .on("mouseout", function(){
+          div.transition()
+            .duration(500)
+            .style("opacity", 1);
+        });
 
 
 
