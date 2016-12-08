@@ -84,6 +84,13 @@ div.tooltip {
   color: #fff;
 }
 
+#chartTitle {
+  text-align: center;
+  padding-top: .5em;
+  font-size: 1.0em; 
+  color: #fff;
+}
+
 /******************************************
 HAMBURGER MENU
 *******************************************/
@@ -254,6 +261,12 @@ TABLET STYLING
   }
 
 
+#chartTitle {
+
+  font-size: 1.2em; 
+
+}
+
 }
 
 /******************************************
@@ -282,5 +295,10 @@ DESKTOP STYLING
     width: 30%;
   }
 
+#chartTitle {
+
+  font-size: 2.0em; 
+
+}
 
 }

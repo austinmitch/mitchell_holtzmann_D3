@@ -4,6 +4,8 @@
 	"use strict";
 	console.log("SEAF FIRED");
 
+
+//dataset via php ************************************************************
 	var dataSet = [
 		'dataBoxOffice.php',
 		'dataCharKills.php',
@@ -11,7 +13,7 @@
 		'DataStormKills.php'
 	];
 
-//buttons to change the chart
+//back/next buttons ************************************************************
 	var z = 0;
 
 	d3.select("#next").on("click", function(){
@@ -28,7 +30,7 @@
 		createChart(z);
 	});
 
-	//list buttons functionality
+//list-buttons functionality ************************************************************
 	d3.select("#dataSet0").on("click", function(){ createChart(0); });
 	d3.select("#dataSet1").on("click", function(){ createChart(1); });
 	d3.select("#dataSet2").on("click", function(){ createChart(2); });
@@ -36,7 +38,7 @@
 
 
 
-//function that creates the chart
+//creates the chart ************************************************************
 function createChart(z) {
 		d3.json(dataSet[z], function(data) {
 		console.log(data);
@@ -44,9 +46,15 @@ function createChart(z) {
 		chart.selectAll("*").remove();
     var tooltip = d3.selectAll(".tooltip");
     tooltip.remove();
+    var title = d3.select('#chartTitle');
+    title.selectAll("*").remove();
+
+
+
 
 
 //variables *************************************************************
+
         var donutWidth = 75;
         var width = 480;
         var height = 470;
@@ -54,11 +62,9 @@ function createChart(z) {
         var color = d3.scaleOrdinal()
         .range(["#00498C", "#00A79D", "#527892", "#3D4E80", "#00A4BB", "#212744"]);
 
-        var legendRectSize = 20;
-        var legendSpacing = 5;
-
-
-
+        var legendCirc = 10;
+        var legendSpacing = 15;
+        
 
 
 
@@ -69,7 +75,6 @@ function createChart(z) {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-
         var svg = d3.select('#pieChart')
           .append('svg')
           .attr('width', '100%')
@@ -79,9 +84,6 @@ function createChart(z) {
           .append('g')
           .attr('transform', 'translate(' + (width / 2) +
             ',' + (height / 2) + ')');
-
-
-
 
         var arc = d3.arc()
           .innerRadius(radius - donutWidth)
@@ -98,6 +100,18 @@ function createChart(z) {
             .attr('d', arc)
             .attr('fill', function(d, i) {
             return color(d.data.label)});
+            
+
+//title functionality ************************************************************
+
+          title.append('text')
+          .data(pie(data))
+          .text(function(d) { return d.data.setName; });
+
+
+         
+
+//tooltip functionality ************************************************************
 
          d3.selectAll('path')
         .on("mouseover", function(d){
@@ -122,30 +136,35 @@ function createChart(z) {
 
 
 
-//legend related *************************************************************
+//making the legend ************************************************************
+
 var legend = svg.selectAll('.legend')
           .data(color.domain())
           .enter()
           .append('g')
           .attr('class', 'legend')
           .attr('transform', function(d, i) {
-            var height = legendRectSize + legendSpacing;
+            var height = legendCirc + legendSpacing;
             var offset =  height * color.domain().length / 2;
-            var horz = -5.5 * legendRectSize;
+            var horz = -10.5 * legendCirc;
             var vert = i * height - offset;
             return 'translate(' + horz + ',' + vert + ')';
           });
 
-        legend.append('rect')
-          .attr('width', legendRectSize)
-          .attr('height', legendRectSize)
+        legend.append('circle')
+          .attr("r", legendCirc)
           .style('fill', color)
-          .style('stroke', color);
+          .style('stroke', color)
+          ;
 
         legend.append('text')
-          .attr('x', legendRectSize + legendSpacing)
-          .attr('y', legendRectSize - legendSpacing)
+          .attr('x', legendCirc + legendSpacing)
+          .attr('y', legendCirc - legendSpacing + 10)
           .text(function(d) { return d; });
+
+
+
+
 
 
 
