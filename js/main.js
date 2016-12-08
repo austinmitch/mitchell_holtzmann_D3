@@ -64,7 +64,7 @@ function createChart(z) {
 
         var legendCirc = 10;
         var legendSpacing = 15;
-        
+
 
 
 
@@ -99,14 +99,11 @@ function createChart(z) {
             .append('path')
             .attr('d', arc)
             .attr('fill', function(d, i) {
-<<<<<<< HEAD
             return color(d.data.label)})
 						.transition()
 							.duration(1000)
 							.attrTween('d', openTween);
-=======
-            return color(d.data.label)});
-            
+
 
 //title functionality ************************************************************
 
@@ -115,10 +112,10 @@ function createChart(z) {
           .text(function(d) { return d.data.setName; });
 
 
-         
+
 
 //tooltip functionality ************************************************************
->>>>>>> refs/remotes/origin/master
+
 
          d3.selectAll('path')
         .on("mouseover", function(d){
@@ -175,9 +172,6 @@ var legend = svg.selectAll('.legend')
 							return arc(i(t));
 						};
 					};
-
-
-
 
 
 
