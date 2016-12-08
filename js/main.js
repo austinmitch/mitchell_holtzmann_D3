@@ -80,7 +80,7 @@ function createChart(z) {
           .attr('width', '100%')
           .attr('height', '100%')
           .attr('viewBox','0 0 '+Math.min(width,height) +' '+Math.min(width,height) )
-   
+
           .append('g')
           .attr('transform', 'translate(' + (width / 2) +
             ',' + (height / 2) + ')');
@@ -99,6 +99,12 @@ function createChart(z) {
             .append('path')
             .attr('d', arc)
             .attr('fill', function(d, i) {
+<<<<<<< HEAD
+            return color(d.data.label)})
+						.transition()
+							.duration(1000)
+							.attrTween('d', openTween);
+=======
             return color(d.data.label)});
             
 
@@ -112,6 +118,7 @@ function createChart(z) {
          
 
 //tooltip functionality ************************************************************
+>>>>>>> refs/remotes/origin/master
 
          d3.selectAll('path')
         .on("mouseover", function(d){
@@ -121,11 +128,11 @@ function createChart(z) {
           div.html(d)
           .style("left", (d3.event.pageX-30)+"px")
           .style("top", (d3.event.pageY-30)+"px")
-          .text(d.data.tooltip);
+          .text(d.data.label+' '+d.data.tooltip);
 
           d3.select(this)//this = eement being hovered on
             .style("opacity", 1);
-            
+
         })
 
         .on("mouseout", function(){
@@ -162,6 +169,12 @@ var legend = svg.selectAll('.legend')
           .attr('y', legendCirc - legendSpacing + 10)
           .text(function(d) { return d; });
 
+					function openTween(a) {
+						var i = d3.interpolate({startAngle: 0, endAngle: 0},{startAngle: a.startAngle, endAngle: a.endAngle});
+						return function(t) {
+							return arc(i(t));
+						};
+					};
 
 
 
@@ -169,6 +182,7 @@ var legend = svg.selectAll('.legend')
 
 
 });
+
 
 };
 createChart(0);
