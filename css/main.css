@@ -69,8 +69,8 @@ button {
   color: #f0db20;
 }
 
-button:nth-child(2) {
-  margin: 0 4.5%;
+.buttons button:nth-child(2) {
+  margin: 0 4%;
 }
 
 div.tooltip {
@@ -132,7 +132,6 @@ HAMBURGER MENU
 #dataMenu ul li {
   /*width: 95%;*/
   margin: 0.3125em auto; /*5/16*/
-  border-bottom: 1px dotted rgba(235, 227, 36, 0.20);
 }
 
 #dataMenu ul li:last-child {
@@ -141,7 +140,7 @@ HAMBURGER MENU
 
 #dataMenu ul li a {
   display: block;
-  color: #fff;
+  color: #f0db20;
   padding: 0.4375em; /*7/16*/
   font-family: helvetica, arial, sans-serif;
   text-decoration: none;
@@ -149,7 +148,8 @@ HAMBURGER MENU
 }
 
 #dataMenu ul li a:hover {
-  background-color: rgba(235, 227, 36, 0.20);
+  background-color: #f0db20;
+  color: #333;
 }
 
 #dataMenu.menuOpen {
